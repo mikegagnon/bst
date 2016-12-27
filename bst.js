@@ -5,6 +5,83 @@ function assert(condition) {
     }
 }
 
+class DNode {
+    constructor(value) {
+        this.value = value;
+        this.prev = undefined;
+        this.next = undefined;
+    }
+
+    // Creates a new node to hold value, then inserts the new node after
+    // this node.
+    //
+    // Returns a reference to the new node
+    insertAfter(value) {
+        
+        var newNode = new DNode(value);
+
+        newNode.next = this.next;
+        newNode.prev = this;
+
+        if (newNode.next != undefined) {
+            newNode.next.prev = newNode;
+        }
+
+        this.next = newNode;
+
+        return newNode;
+    }
+
+    // Creates a new node to hold value, then inserts the new node before
+    // this node.
+    //
+    // Returns a reference to the new node
+    insertBefore(value) {
+
+        var newNode = new DNode(value);
+
+        newNode.next = this;
+        newNode.prev = this.prev;
+
+        if (newNode.prev != undefined) {
+            newNode.prev.next = newNode;
+        }
+
+        this.prev = newNode;
+
+        return newNode;
+    }
+
+    // Creates a new node to hold value, then appends the new node to 
+    // the end of the list.
+    //
+    // this node __must__ be the last node in the list
+    // 
+    // Returns a reference to the new node
+    append(value) {
+        if (this.next == undefined) {
+            return this.insertAfter(value);
+        } else {
+            console.error("this node __must__ be the last node in the list");
+        }
+    }
+    
+    // Creates a new node to hold value, then prepend the new node to 
+    // the head of the list.
+    //
+    // this node __must__ be the first node in the list
+    // 
+    // Returns a reference to the new node
+    prepend(value) {
+        if (this.prev == undefined) {
+            return this.insertBefore(value);
+        } else {
+            console.error("this node __must__ be the first node in the list");
+        }
+    }
+}
+
+
 class BNode {
     constructor(key) {
         this.key = key;
@@ -71,6 +148,28 @@ class BNode {
         } else {
             console.error("Key is already in the BST")
         }
+    }
+
+    sort() {
+
+        var sorted = undefined;
+
+        if (this.left != undefined) {
+            sorted = this.left.sort();
+        } 
+
+        if (sorted == undefined) {
+            sorted = new DNode(this.key);
+        } else {
+            sorted.append(new DNode(this.key));
+        }
+
+        if (this.right != undefined) {
+            sorted.concat(this.right.sort());
+        }
+
+        return sorted;
+       
     }
 }
 
@@ -266,3 +365,22 @@ root.insert(20);
 assert(root.right.right.key == 20);
 
 assert(root.isValid());
+
+
+/* Tests for sorted ***********************************************************/
+
+// Valid BST:
+//
+//             10
+//     5               15
+//   3   7          12    20
+// 
+var node = new BNode(10);
+node.left = new BNode(5);
+node.left.left = new BNode(3);
+node.left.right = new BNode(7);
+node.right = new BNode(15);
+node.right.right = new BNode(20);
+node.right.left = new BNode(12);
+
+// assert(node.sort() == [3,5,7,10,12,15,20]);
