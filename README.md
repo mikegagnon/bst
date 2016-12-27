@@ -51,7 +51,7 @@ In general:
 
 - *N* is the number of players
 - *Y* is the number of rounds it takes to find the victor
-- *Y* = log(N)*
+- *Y = log(N)*
 
 When *N* is a very large number, *log(N)* is a relatively small number.
 
