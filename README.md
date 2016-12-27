@@ -1,7 +1,7 @@
 # Binary Search Trees
 A mini-course in binary search trees in JS for novice programmers.
 
-A binary search tree (BST) is a recursive data structure. BSTs are great for the following reasons:
+A binary search tree (BST) is an efficient recursive data structure.
 
 ## <a name="summary">Summary of algorithmic performance</a>
 
