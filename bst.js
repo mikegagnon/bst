@@ -12,6 +12,11 @@ class BNode {
         this.right = undefined;
     }
 
+    // Returns true iff this node represents the root of a valid BST.
+    // 
+    // A tree of nodes is valid iff:
+    //      - Every key in node's left subtree is less than node.key
+    //      - Every key in node's right subtree is greater than node.key
     isValid() {
         var leftValid;
         var rightValid;
