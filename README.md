@@ -7,11 +7,12 @@ A binary search tree (BST) is a recursive data structure. BSTs are great for the
 
 | Function      | Singly linked list | Doubly linked List | Binary Search Tree |
 | ------------- |--------------------|--------------------|--------------------|
-| `append`      | *O(N)*             | *O(1)*             |
-| `prepend`     | *O(1)*             | *O(1)*             |
-| `removeFirst` | *O(1)*             | *O(1)*             |
-| `removeLast`  | *O(N)*             | *O(1)*             |
-| `removeValue` | *O(N)*             | *O(N)*             |
-| `findSmallest`| *O(N)*             | *O(N)*             |
-| `sort`        | *O(N^2)*           | *O(N^2)*           |
+| `insert`      | n/a                | n/a                | *O(log(N))*        |
+| `append`      | *O(N)*             | *O(1)*             | n/a                |
+| `prepend`     | *O(1)*             | *O(1)*             | n/a                |
+| `removeFirst` | *O(1)*             | *O(1)*             | n/a                |
+| `removeLast`  | *O(N)*             | *O(1)*             | n/a                |
+| `removeValue` | *O(N)*             | *O(N)*             | *O(log(N))*        |
+| `findSmallest`| *O(N)*             | *O(N)*             | *O(log(N))*        |
+| `sort`        | *O(N^2)*           | *O(N^2)*           | *O(N)              |
 
