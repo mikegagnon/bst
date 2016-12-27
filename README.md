@@ -13,7 +13,7 @@ Mastery of [singly linked lists](https://github.com/mikegagnon/linked-lists/blob
 - [Lecture 1. Summary of algorithmic performance](#lec1)
 - [Lecture 2. *O(log(N))*](#lec2)
 - [Lecture 3. `BNode`](#lec3)
-- [Lecture 4. `isValid`](#lec4)
+- [Lecture 4. `isValid()`](#lec4)
 
 ## <a name="lec1">Lecture 1. Summary of algorithmic performance</a>
 
