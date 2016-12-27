@@ -88,12 +88,23 @@ Here's the basic class definition for a `BNode` -- the node structure for BSTs:
 
 ```js
 class BNode {
-    constructor(value) {
-        this.value = value;
+    constructor(key) {
+        this.key = key;
         this.left = undefined;
         this.right = undefined;
     }
 }
 ```
 
+`BNode`s link together to form "trees," like so:
+
 <img src="tree.png">
+
+### The BST invariant
+
+For every `BNode` in a tree, say `node`:
+
+- The key in every node in `node`'s left subtree must be **less than** `node.key`
+- The key in every node in `node`'s right subtree must be **greater than** `node.key`
+
+Observe how this property holds in the diagram above.
