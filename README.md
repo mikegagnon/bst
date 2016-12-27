@@ -223,3 +223,6 @@ This observation yields our final recursive case:
 leftValid = this.left.isValid() && this.left.max() < this.key;
 ```
 
+### Algorithmic complexity of `isValid()`
+
+`isValid()` is *O(N)* where *N* is the number of nodes.
