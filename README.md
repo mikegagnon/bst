@@ -8,7 +8,12 @@ A binary search tree (BST) is an efficient recursive data structure.
 Mastery of [singly linked lists](https://github.com/mikegagnon/linked-lists/blob/master/README.md) and
 [doubly linked lists](https://github.com/mikegagnon/dlists/blob/master/README.md)
 
-## <a name="summary">Summary of algorithmic performance</a>
+## Contents
+
+- [Lecture 1. Summary of algorithmic performance](#lec1)
+- [Lecture 2. *O(log(N))*](#lec2)
+
+## <a name="lec1">Lecture 1. Summary of algorithmic performance</a>
 
 | Function      | Singly linked list | Doubly linked List | Binary Search Tree |
 | ------------- |--------------------|--------------------|--------------------|
@@ -21,7 +26,7 @@ Mastery of [singly linked lists](https://github.com/mikegagnon/linked-lists/blob
 | `findSmallest`| *O(N)*             | *O(N)*             | *O(log(N))*        |
 | `sort`        | *O(N^2)*           | *O(N^2)*           | *O(N)*             |
 
-## *O(log(N))*
+## <a name="lec2">Lecture 2. *O(log(N))*</a>
 
 Recall, the logarithm function is the inverse of the exponential function.
 
