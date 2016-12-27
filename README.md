@@ -394,3 +394,33 @@ assert(!node.isValid());
 ```
 
 ## <a name="lec5">insert(...)</a>
+
+Study the `insert(...)` method:
+
+```js
+class BNode {
+
+    ...
+    
+    // Assumg this is a valid BST, insert(key) creates a new BNode for key,
+    // and inserts it into the BST. The insertion is performed in a way such
+    // that this remains a valid BST
+    insert(key) {
+        if (key < this.key) {
+            if (this.left == undefined) {
+                this.left = new BNode(key);
+            } else {
+                this.left.insert(key);
+            }
+        } else if (key > this.key) {
+            if (this.right == undefined) {
+                this.right = new BNode(key);
+            } else {
+                this.right.insert(key);
+            }
+        } else {
+            console.error("Key is already in the BST")
+        }
+    }
+}
+```
