@@ -477,6 +477,9 @@ When you increase the depth by one, *N* apporoximately doubles.
 
 Therefore: *N* ≈ 2<sup>depth</sup> and *log(N)* ≈ depth.
 
+#### Analyzing `insert(...)`
 
+The performance of `insert(...)` is clearly linear with regard to the depth.
 
+Therefore `insert(...)` is O(depth), which is equivalent to *O(log(n)*.
 
