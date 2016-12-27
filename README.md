@@ -13,6 +13,7 @@ Mastery of [singly linked lists](https://github.com/mikegagnon/linked-lists/blob
 - [Lecture 1. Summary of algorithmic performance](#lec1)
 - [Lecture 2. *O(log(N))*](#lec2)
 - [Lecture 3. `BNode`](#lec3)
+- [Lecture 4. `isValid`](#lec4)
 
 ## <a name="lec1">Lecture 1. Summary of algorithmic performance</a>
 
@@ -109,7 +110,7 @@ For every `BNode` in a tree, say `node`:
 
 Observe how this property holds in the diagram above.
 
-## <a name="lec4">`isValid`</a>
+## <a name="lec4">`isValid()`</a>
 
 Let's write a function, `isValid()` that tests to see if `BNode` is a valid BST.
 
