@@ -47,6 +47,27 @@ And only seven rounds to handle 128 players.
 
 ...
 
-- *X* is the number of players
+In general:
+
+- *N* is the number of players
 - *Y* is the number of rounds it takes to find the victor
-- *Y = log_2(X)*
+- *Y* = log(N)*
+
+When *N* is a very large number, *log(N)* is a relatively small number.
+
+For example:
+
+- *log(1) == 0*
+- *log(2) == 1*
+- *log(4) == 2*
+- *log(8) == 3*
+- *log(16) == 4*
+- *log(32) == 5*
+- *log(64) == 6*
+- ...
+- *log(4,294,967,296) == 32*
+
+As *N* grows exponentially, *log(N)* grows linearly.
+
+
+
