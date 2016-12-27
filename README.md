@@ -69,5 +69,5 @@ For example:
 
 As *N* grows exponentially, *log(N)* grows linearly.
 
-
+Therefore *O(log(N))* is considered very efficient, almost as good as *O(1)*.
 
