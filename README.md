@@ -25,3 +25,28 @@ The exponential function grows exorbitantly fast.
 The logarithmic function grows exorbitantly slow.
 
 <img src="graph.png">
+
+### Defining log(N)
+
+Say you have a single-elmination tournament with 16 players. How many rounds does it take to determine the victor?
+
+The tournament starts with 16 players, then:
+
+- (Round 1) half get eliminated leaving 8, then
+- (Round 2) half get eliminated leaving 4, then
+- (Round 3) half get eliminated leaving 2, then
+- (Round 4) half get eliminated leaving 1, the victor
+
+It only takes four rounds to handle 16 players.
+
+And only five rounds to handle 32 players.
+
+And only six rounds to handle 64 players.
+
+And only seven rounds to handle 128 players.
+
+...
+
+- *X* is the number of players
+- *Y* is the number of rounds it takes to find the victor
+- *Y = log_2(X)*
