@@ -12,6 +12,7 @@ Mastery of [singly linked lists](https://github.com/mikegagnon/linked-lists/blob
 
 - [Lecture 1. Summary of algorithmic performance](#lec1)
 - [Lecture 2. *O(log(N))*](#lec2)
+- [Lecture 3. `BNode`](#lec3)
 
 ## <a name="lec1">Lecture 1. Summary of algorithmic performance</a>
 
@@ -79,3 +80,6 @@ As *N* grows exponentially, *log(N)* grows linearly.
 
 Therefore *O(log(N))* is considered very efficient, almost as good as *O(1)*.
 
+## <a name="lec3">`BNode`</a>
+
+<img src="tree.png">
