@@ -15,6 +15,7 @@ Mastery of [singly linked lists](https://github.com/mikegagnon/linked-lists/blob
 - [Lecture 3. `BNode`](#lec3)
 - [Lecture 4. `isValid()`](#lec4)
 - [Lecture 5. `insert(...)`](#lec5)
+- [Lecture 6. `sort(...)`](#lec6)
 
 ## <a name="lec1">Lecture 1. Summary of algorithmic performance</a>
 
@@ -503,6 +504,65 @@ The BST would essentially become a linked list where `next` is equivalent to `ri
 
 In this pathological case the performance of `insert(...)` is *O(N)*.
 
-But, if the order of insertion is random, the balance of the tree will be approximately perfect.
+But, if the order of insert
+
+ion is random, the balance of the tree will be approximately perfect.
 
 Therefore we say the worst-case performance is *O(N)* and the average-case performance is *O(log(N))*.
+
+## <a name="lec6">`sort()`</a>
+
+The `sort()` method produces a doubly linked list that contains all the keys in this BST,
+in ascending order.
+
+Let's look at the algorithm for `sort()`, before studying the source code. Recall, when implementing a recursive function
+we assume that invoking the function works correctly. Therefore, if we invoke `this.left.sort()` and `this.right.sort()`
+we assume it returns a sorted list of the left tree, and the right tree respectively.
+
+```
+sort this:
+    list = this.left.sort()
+    list.append(this.key)
+    list.concat(this.right.sort())
+```
+
+
+The `sort()` method implementation:
+
+```js
+// Produces a doubly linked list that contains the keys in this BST,
+// in ascending order.
+//
+// Returns [head, last], where:
+//      head is the first DNode in the list
+//      tail is the last DNode in the list
+sort() {
+
+    var [head, last] = [undefined, undefined];
+
+    if (this.left != undefined) {
+        [head, last] = this.left.sort();
+    }
+
+    if (last != undefined) {
+        last = last.append(this.key);
+    } else {
+        var newNode = new DNode(this.key);
+        var [head, last] = [newNode, newNode];
+    }
+
+    assert(head != undefined && last != undefined);
+
+    var [rightHead, rightLast] = [undefined, undefined];
+
+    if (this.right != undefined){
+        [rightHead, rightLast] = this.right.sort();
+        last.concat(last, rightHead);
+    } else {
+        rightLast = last;
+    }
+
+    return [head, rightLast]
+
+}
+```
