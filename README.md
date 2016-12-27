@@ -479,7 +479,30 @@ Therefore: *N* ≈ 2<sup>depth</sup> and *log(N)* ≈ depth.
 
 #### Analyzing `insert(...)`
 
-The performance of `insert(...)` is clearly linear with regard to the depth.
+In a perfectly balanced tree, the performance of `insert(...)` is clearly linear with regard to the depth.
 
-Therefore `insert(...)` is O(depth), which is equivalent to *O(log(n)*.
+Therefore `insert(...)` is *O(depth)*, which is equivalent to *O(log(n))* (asssuming perfect balance).
 
+However, it is possible for `insert(...)` to have much worse performance.
+
+Imagine, inserting 1, 2, 3, 4, 5, 6, 7,..., *N* in that order.
+
+The BST would essentially become a linked list where `next` is equivalent to `right`:
+
+```
+1
+ 2 
+  3
+   4
+    5
+     6
+      7
+       ...
+        N
+```
+
+In this pathological case the performance of `insert(...)` is *O(N)*.
+
+But, if the order of insertion is random, the balance of the tree will be approximately perfect.
+
+Therefore we say the worst-case performance is *O(N)* and the average-case performance is *O(log(N))*.
