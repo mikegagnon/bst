@@ -3,6 +3,11 @@ A mini-course in binary search trees in JS for novice programmers.
 
 A binary search tree (BST) is an efficient recursive data structure.
 
+## Prerequisites
+
+Mastery of [singly linked lists](https://github.com/mikegagnon/linked-lists/blob/master/README.md) and
+[doubly linked lists](https://github.com/mikegagnon/dlists/blob/master/README.md)
+
 ## <a name="summary">Summary of algorithmic performance</a>
 
 | Function      | Singly linked list | Doubly linked List | Binary Search Tree |
