@@ -82,4 +82,143 @@ Therefore *O(log(N))* is considered very efficient, almost as good as *O(1)*.
 
 ## <a name="lec3">`BNode`</a>
 
+Like linked lists, binary search trees are composed of nodes.
+
+Here's the basic class definition for a `BNode` -- the node structure for BSTs:
+
+```js
+class BNode {
+    constructor(key) {
+        this.key = key;
+        this.left = undefined;
+        this.right = undefined;
+    }
+}
+```
+
+`BNode`s link together to form "trees," like so:
+
 <img src="tree.png">
+
+### The BST invariant
+
+For every `BNode` in a tree, say `node`:
+
+- Every key in `node`'s left subtree must be **less than** `node.key`
+- Every key in `node`'s right subtree must be **greater than** `node.key`
+
+Observe how this property holds in the diagram above.
+
+## <a name="lec4">`isValid`</a>
+
+Let's write a function, `isValid()` that tests to see if `BNode` is a valid BST.
+
+```js
+class BNode {
+
+    ...
+
+    // Returns true iff this node represents the root of a valid BST.
+    // 
+    // A tree of nodes is valid iff:
+    //      - Every key in node's left subtree is less than node.key
+    //      - Every key in node's right subtree is greater than node.key
+    isValid() {
+        var leftValid;
+        var rightValid;
+
+        if (this.left == undefined) {
+            leftValid = true;
+        } else {
+            leftValid = this.left.isValid() && this.left.max() < this.key;
+        }
+
+        if (this.right == undefined) {
+            rightValid = true;
+        } else {
+            rightValid = this.right.isValid() && this.right.min() > this.key;
+        }
+
+        return leftValid && rightValid;
+    }
+
+    max() {
+        if (this.right == undefined) {
+            return this.key;
+        } else {
+            return this.right.max();
+        }
+    }
+
+    min() {
+        if (this.left == undefined) {
+            return this.key;
+        } else {
+            return this.left.min();
+        }
+    }
+}
+```
+
+### Breaking down the code
+
+#### Definition of validity
+
+A tree of nodes is valid iff:
+
+- Every `key` in `node`'s left subtree is less than `node.key`
+- Every `key` in `node`'s right subtree is greater than `node.key`
+
+#### Left side validity
+
+We will only analyze the left recursive case, since the right recursive
+case is simply the mirror of the left.
+
+```js
+if (this.left == undefined) {
+    leftValid = true;
+} else {
+    leftValid = this.left.isValid() && this.left.max() < this.key;
+}
+```
+
+##### Base case
+
+If there is no left node, then the left side is clearly valid;
+
+##### Recursive case
+
+```js
+leftValid = this.left.isValid() && this.left.max() < this.key;
+```
+
+We assume that `this.left.isValid()` is correct; i.e.,
+it returns true iff `this.left` is a valid BST.
+
+But just because `this.left` is a valid BST, does not
+mean that the left case is valid. Consider an example:
+
+```
+             10
+     5               15
+   3   *11*       12    20
+```
+
+Here `root.left` is a valid BST (3, 5, 11).
+
+However, 11 is greater than 10, therefore the total tree is is an invalid BST.
+
+We must check to see if every `key` in `node`'s left subtree is less than `node.key`.
+
+If `this.left.isValid()`, then we know the right-most node in `this.left`'s tree
+is the maximum value of `this.left`'s tree.
+
+Therefore, we know every `key` in `node`'s left subtree is less than `node.key`
+iff `this.left.max() < this.key`.
+
+This observation yields our final recursive case:
+
+```js
+leftValid = this.left.isValid() && this.left.max() < this.key;
+```
+
