@@ -424,3 +424,52 @@ class BNode {
     }
 }
 ```
+
+### Algorithmic complexity
+
+On average, `insert(...)` has *O(log(N))* performance.
+
+Imagine a perfectly balanced BST with *N* nodes
+
+#### If *N* == 1
+Then the BST has a depth of 1
+
+#### If *N* == 3
+  x
+x   x
+
+Then the BST has a depth of 2
+
+#### If *N* == 7
+      x
+  x       x
+ x x     x x
+ 
+Then the BST has a depth of 3
+
+#### If *N* == 15
+            x
+     x             x
+ x       x      x      x
+x x     x x    x x    x x
+ 
+Then the BST has a depth of 4
+
+#### If *N* == 31
+                x
+          x                 x
+     x         x        x        x
+   x   x     x   x    x   x    x   x
+  x x x x   x x x x  x x x x  x x x x
+  
+Then the BST has a depth of 5
+
+#### In general...
+
+When you increase the depth by one, *N* apporoximately doubles.
+
+Therefore: *N* ≈ 2<sup>depth</sup> and *log(N)* ≈ depth.
+
+
+
+
