@@ -82,4 +82,18 @@ Therefore *O(log(N))* is considered very efficient, almost as good as *O(1)*.
 
 ## <a name="lec3">`BNode`</a>
 
+Like linked lists, binary search trees are composed of nodes.
+
+Here's the basic class definition for a `BNode` -- the node structure for BSTs:
+
+```js
+class BNode {
+    constructor(value) {
+        this.value = value;
+        this.left = undefined;
+        this.right = undefined;
+    }
+}
+```
+
 <img src="tree.png">
