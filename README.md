@@ -14,6 +14,7 @@ Mastery of [singly linked lists](https://github.com/mikegagnon/linked-lists/blob
 - [Lecture 2. *O(log(N))*](#lec2)
 - [Lecture 3. `BNode`](#lec3)
 - [Lecture 4. `isValid()`](#lec4)
+- [Lecture 5. `insert(...)`](#lec5)
 
 ## <a name="lec1">Lecture 1. Summary of algorithmic performance</a>
 
@@ -392,6 +393,4 @@ assert(node.right.max() == 14);
 assert(!node.isValid());
 ```
 
-### Algorithmic complexity of `isValid()`
-
-`isValid()` is *O(N)* where *N* is the number of nodes.
+## <a name="lec5">insert(...)</a>
