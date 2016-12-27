@@ -104,7 +104,7 @@ class BNode {
 
 For every `BNode` in a tree, say `node`:
 
-- The key in every node in `node`'s left subtree must be **less than** `node.key`
-- The key in every node in `node`'s right subtree must be **greater than** `node.key`
+- Every key in `node`'s left subtree must be **less than** `node.key`
+- Every key in `node`'s right subtree must be **greater than** `node.key`
 
 Observe how this property holds in the diagram above.
