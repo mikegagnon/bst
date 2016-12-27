@@ -111,7 +111,7 @@ Observe how this property holds in the diagram above.
 
 ## <a name="lec4">`isValid`</a>
 
-Let's write a function that tests to see if `BNode` is a valid BST.
+Let's write a function, `isValid()` that tests to see if `BNode` is a valid BST.
 
 ```js
 class BNode {
