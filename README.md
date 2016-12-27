@@ -566,3 +566,7 @@ sort() {
 
 }
 ```
+
+### Algorithmic performance
+
+*O(N)*
