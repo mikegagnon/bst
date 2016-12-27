@@ -108,3 +108,54 @@ For every `BNode` in a tree, say `node`:
 - Every key in `node`'s right subtree must be **greater than** `node.key`
 
 Observe how this property holds in the diagram above.
+
+## <a name="lec4">`isValid`</a>
+
+Let's write a function that tests to see if `BNode` is a valid BST.
+
+```js
+class BNode {
+
+    ...
+
+    // Returns true iff this node represents the root of a valid BST.
+    // 
+    // A tree of nodes is valid iff:
+    //      - Every key in node's left subtree is less than node.key
+    //      - Every key in node's right subtree is greater than node.key
+    isValid() {
+        var leftValid;
+        var rightValid;
+
+        if (this.left == undefined) {
+            leftValid = true;
+        } else {
+            leftValid = this.left.isValid() && this.left.max() < this.key;
+        }
+
+        if (this.right == undefined) {
+            rightValid = true;
+        } else {
+            rightValid = this.right.isValid() && this.right.min() > this.key;
+        }
+
+        return leftValid && rightValid;
+    }
+
+    max() {
+        if (this.right == undefined) {
+            return this.key;
+        } else {
+            return this.right.max();
+        }
+    }
+
+    min() {
+        if (this.left == undefined) {
+            return this.key;
+        } else {
+            return this.left.min();
+        }
+    }
+}
+```
