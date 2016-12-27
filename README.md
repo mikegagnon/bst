@@ -463,7 +463,7 @@ Then the BST has a depth of 4
 
 #### If *N* == 31
 ```
-                x
+                   x
           x                 x
      x         x        x        x
    x   x     x   x    x   x    x   x
