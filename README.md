@@ -17,3 +17,11 @@ A binary search tree (BST) is an efficient recursive data structure.
 | `sort`        | *O(N^2)*           | *O(N^2)*           | *O(N)*             |
 
 ## *O(log(N))*
+
+Recall, the logarithm function is the inverse of the exponential function.
+
+The exponential function grows exorbitantly fast.
+
+The logarithmic function grows exorbitantly slow.
+
+<img src="graph.png">
