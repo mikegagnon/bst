@@ -48,7 +48,7 @@ class BNode {
     }
 }
 
-//
+/* Tests for min, max, and isValid ********************************************/
 
 // BST with one node
 var key = 10
@@ -134,3 +134,83 @@ assert(node.left.max() == 7);
 assert(node.right.min() == 12);
 assert(node.right.max() == 20);
 assert(node.isValid());
+
+// Invalid BST:
+//
+//             10
+//     5               15
+// *6*   7       12    20
+// 
+var node = new BNode(10);
+node.left = new BNode(5);
+node.left.left = new BNode(6);
+node.left.right = new BNode(7);
+node.right = new BNode(15);
+node.right.right = new BNode(20);
+node.right.left = new BNode(12);
+
+assert(node.left.min() == 6);
+assert(node.left.max() == 7);
+assert(node.right.min() == 12);
+assert(node.right.max() == 20);
+assert(!node.isValid());
+
+// Invalid BST:
+//
+//             10
+//     5               15
+//   3   *11*       12    20
+// 
+var node = new BNode(10);
+node.left = new BNode(5);
+node.left.left = new BNode(3);
+node.left.right = new BNode(11);
+node.right = new BNode(15);
+node.right.right = new BNode(20);
+node.right.left = new BNode(12);
+
+assert(node.left.min() == 3);
+assert(node.left.max() == 11);
+assert(node.right.min() == 12);
+assert(node.right.max() == 20);
+assert(!node.isValid());
+
+// Invalid BST:
+//
+//             10
+//     5               15
+//   3   7         *8*    20
+// 
+var node = new BNode(10);
+node.left = new BNode(5);
+node.left.left = new BNode(3);
+node.left.right = new BNode(7);
+node.right = new BNode(15);
+node.right.right = new BNode(20);
+node.right.left = new BNode(8);
+
+assert(node.left.min() == 3);
+assert(node.left.max() == 7);
+assert(node.right.min() == 8);
+assert(node.right.max() == 20);
+assert(!node.isValid());
+
+// Invalid BST:
+//
+//             10
+//     5               15
+//   3   7          12    *14*
+// 
+var node = new BNode(10);
+node.left = new BNode(5);
+node.left.left = new BNode(3);
+node.left.right = new BNode(7);
+node.right = new BNode(15);
+node.right.right = new BNode(14);
+node.right.left = new BNode(12);
+
+assert(node.left.min() == 3);
+assert(node.left.max() == 7);
+assert(node.right.min() == 12);
+assert(node.right.max() == 14);
+assert(!node.isValid());
