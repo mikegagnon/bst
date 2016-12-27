@@ -19,13 +19,13 @@ class BNode {
         if (this.left == undefined) {
             leftValid = true;
         } else {
-            leftValid = this.left.max() < this.key && this.left.isValid();
+            leftValid = this.left.isValid() && this.left.max() < this.key;
         }
 
         if (this.right == undefined) {
             rightValid = true;
         } else {
-            rightValid = this.right.min() > this.key && this.right.isValid();
+            rightValid = this.right.isValid() && this.right.min() > this.key;
         }
 
         return leftValid && rightValid;
