@@ -28,8 +28,6 @@ Mastery of [singly linked lists](https://github.com/mikegagnon/linked-lists/blob
 
 ## <a name="lec2">Lecture 2. *O(log(N))*</a>
 
-Recall, the logarithm function is the inverse of the exponential function.
-
 The exponential function grows exorbitantly fast.
 
 The logarithmic function grows exorbitantly slow.
