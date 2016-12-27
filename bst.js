@@ -51,6 +51,27 @@ class BNode {
             return this.left.min();
         }
     }
+
+    // Assumg this is a valid BST, insert(key) creates a new BNode for key,
+    // and inserts it into the BST. The insertion is performed in a way such
+    // that this remains a valid BST
+    insert(key) {
+        if (key < this.key) {
+            if (this.left == undefined) {
+                this.left = new BNode(key);
+            } else {
+                this.left.insert(key);
+            }
+        } else if (key > this.key) {
+            if (this.right == undefined) {
+                this.right = new BNode(key);
+            } else {
+                this.right.insert(key);
+            }
+        } else {
+            console.error("Key is already in the BST")
+        }
+    }
 }
 
 /* Tests for min, max, and isValid ********************************************/
@@ -219,3 +240,29 @@ assert(node.left.max() == 7);
 assert(node.right.min() == 12);
 assert(node.right.max() == 14);
 assert(!node.isValid());
+
+
+
+
+/* Tests for insert ***********************************************************/
+
+// Test case for
+//             10
+//     5               15
+//   3   7          12    20
+var root = new BNode(10);
+assert(root.isValid());
+root.insert(5);
+assert(root.left.key == 5);
+root.insert(15);
+assert(root.right.key == 15);
+root.insert(3);
+assert(root.left.left.key == 3);
+root.insert(7);
+assert(root.left.right.key == 7);
+root.insert(12);
+assert(root.right.left.key == 12);
+root.insert(20);
+assert(root.right.right.key == 20);
+
+assert(root.isValid());
