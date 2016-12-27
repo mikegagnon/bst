@@ -16,3 +16,4 @@ A binary search tree (BST) is an efficient recursive data structure.
 | `findSmallest`| *O(N)*             | *O(N)*             | *O(log(N))*        |
 | `sort`        | *O(N^2)*           | *O(N^2)*           | *O(N)*             |
 
+## *O(log(N))*
